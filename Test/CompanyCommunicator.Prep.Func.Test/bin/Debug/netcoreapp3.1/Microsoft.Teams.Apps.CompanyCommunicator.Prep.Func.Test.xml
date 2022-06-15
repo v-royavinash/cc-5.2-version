@@ -1,0 +1,1044 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.GetMetadataActivityTest">
+            <summary>
+            GetMetadataActivity test class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.GetMetadataActivityTest.RunParameters">
+            <summary>
+            Gets RunParameters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.GetMetadataActivityTest.CreateActivity_AllParameters_ShouldBeSuccess">
+            <summary>
+            Constructor test for all parameters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.GetMetadataActivityTest.RunActivity_NullParameters_ThrowsAgrumentNullException(Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.NotificationData.NotificationDataEntity,Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.ExportData.ExportDataEntity)">
+            <summary>
+            Test case to check if activity handles null paramaters.
+            </summary>
+            <param name="notificationDataEntity">notificationDataEntity.</param>
+            <param name="exportDataEntity">exportDataEntity.</param>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.GetMetadataActivityTest.RunActivity_CorrectType_ReturnsMetadataObject">
+            <summary>
+            Test case to check if activity returns Metadata type.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.GetMetadataActivityTest.Get_NullParameters_ThrowsArgumentNullException(Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.NotificationData.NotificationDataEntity,Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.ExportData.ExportDataEntity)">
+            <summary>
+            Test case to check if get method handles null paramaters.
+            </summary>
+            <param name="notificationDataEntity">notificationDataEntity.</param>
+            <param name="exportDataEntity">exportDataEntity.</param>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.GetMetadataActivityTest.Get_CallUserService_ShouldInvokeOnce">
+            <summary>
+            Test case to check if GetUserAsync method is called once.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.GetMetadataActivityTest.Get_GraphServiceError_ThrowsServiceException">
+            <summary>
+            Test case to check if service exception is thrown when received graph error which is not 403.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.GetMetadataActivityTest.Get_ForbiddenGraphPermission_ReturnsAdminConsentError">
+            <summary>
+            Test case to check that return object is not null and contains AdminConsentError.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.GetMetadataActivityTest.Get_CorrectMapping_ReturnsMetadataObject">
+            <summary>
+            Test case to check if object mapping is correct.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.GetMetadataActivityTest.GetMetadataActivity">
+            <summary>
+            Initializes a new instance of the <see cref="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.GetMetadataActivityTest.GetMetadataActivity"/> class.
+            </summary>
+            <returns>return the instance of GetMetadataActivity.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.HandleExportFailureActivityTest">
+            <summary>
+            HandleExportFailureActivity test class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.HandleExportFailureActivityTest.CreateInstance_AllParameters_ShouldBeSuccess">
+            <summary>
+            Constructor test for all parameters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.HandleExportFailureActivityTest.CreateInstance_NullParamters_ThrowsArgumentNullException">
+            <summary>
+            Constructor test for null parameters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.HandleExportFailureActivityTest.HandleFailure_NullParameters_ThrowsAgrumentNullException">
+            <summary>
+            Test case to check if method handles null paramaters.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.HandleExportFailureActivityTest.DeleteFile_nullParam_ShouldNeverInvokeDeleteFileFromStorage">
+            <summary>
+            Test case to check if DeletIfExistsAsync shoud be never be invoked for invalid file.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.HandleExportFailureActivityTest.Delete_ValidFile_DeleteIfExistsAsyncShouldNeveOnce">
+            <summary>
+            Test case to check if DeletIfExistsAsync shoud be instanceated for valid file.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.HandleExportFailureActivityTest.SendFailureMessage_CallContinueConversationAsync_ShouldInvokeOnce">
+            <summary>
+            Test case to check callContinueConversationAsync should invoke Once.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.HandleExportFailureActivityTest.Delete_CallDeleteAsync_ShouldInvokeOnce">
+            <summary>
+            Test case to check DeleteAsync invoked to delete entry for storage.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.SendFileCardActivityTest">
+            <summary>
+            SendFileCardActivity test class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.SendFileCardActivityTest.CreateInstance_AllParameters_ShouldBeSuccess">
+            <summary>
+            Constructor test for all parameters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.SendFileCardActivityTest.CreateInstance_NullParamters_ThrowsArgumentNullException">
+            <summary>
+            Constructor test for null parameters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.SendFileCardActivityTest.CreateConversation_NullConversationId_ThrowsApplicationException">
+            <summary>
+            Test case for null conversationId throws application exception.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.SendFileCardActivityTest.Call_SaveWarningInNotificationRepository_ShouldInvokedOnce">
+            <summary>
+            Test case to verify the SaveWarningInNotification should be invoked once.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.SendFileCardActivityTest.CreateConversation_WithStatusFailed_ReturnsNullConversationId">
+            <summary>
+            Test case to verify null conversationId to be returned for failed status of conversation response.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.SendFileCardActivityTest.SendFileCard_ValidInput_ReturnsConsentId">
+            <summary>
+            Test case to verify SendFileCard returns not null consentId for valid input.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.SendFileCardActivityTest.GetSendFileCardActivityInstance">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Export.Activities.SendFileCardActivity"/> class.
+            </summary>
+            <returns>return the instance of GetMetadataActivity.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.UpdateExportDataActivityTest">
+            <summary>
+            UpdateExportDataActivity test class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.UpdateExportDataActivityTest.CreateInstance_AllParameters_ShouldBeSuccess">
+            <summary>
+            Constructor test for all parameters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.UpdateExportDataActivityTest.CreateInstance_NullParamter_ThrowsArgumentNullException">
+            <summary>
+            Constructor test for null parameter.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.UpdateExportDataActivityTest.RunActivity_NullParameters_ThrowsAgrumentNullException">
+            <summary>
+            Test case to check CallActivityWithRetryAsync method is invoked once.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.UpdateExportDataActivityTest.UpdateExportData_NullParameters_ThrowsAgrumentNullException">
+            <summary>
+            Test case to check ArgumentNullException when exportDataEntity argument is null for UpdateExportDataActivityAsync method.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.UpdateExportDataActivityTest.ExportData_CreateOrUpdateService_ShouldInvokeOnce">
+            <summary>
+            Test case to check if CreateOrUpdateAsync method is invoked once.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.UpdateExportDataActivityTest.GetUpdateExportDataActivity">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Export.Activities.UpdateExportDataActivity"/> class.
+            </summary>
+            <returns>return the instance of UpdateExportDataActivity.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.UploadActivityTest">
+            <summary>
+            UploadActivity test class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.UploadActivityTest.UploadParameters">
+            <summary>
+            Gets UploadParameters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.UploadActivityTest.CreateInstance_AllParameters_ShouldBeSuccess">
+            <summary>
+            Constructor test for all parameters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.UploadActivityTest.CreateInstance_NullParamters_ThrowsArgumentNullException">
+            <summary>
+            Constructor test for null parameters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.UploadActivityTest.UploadActivity_NullParameters_ThrowsAgrumentNullException(Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.NotificationData.NotificationDataEntity,Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Export.Model.Metadata,System.String)">
+            <summary>
+            Test case to check if method handles null paramaters.
+            </summary>
+            <param name="notificationDataEntity">the notification data entity.</param>
+            <param name="metaData">metaData.</param>
+            <param name="fileName">filename.</param>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.UploadActivityTest.NotificationWithTeams_GetTeamDataStreamAsync_ShouldInvodeOnce">
+            <summary>
+            Test case to check if GetTeamDataStreamAsync shoud be invoked once.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Activities.UploadActivityTest.NotificationWithNoTeams_GetUserDataStreamAsync_ShouldInvodeOnce">
+            <summary>
+            Test case to check if GetUserDataStreamAsync should be invoked once.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.ExportFunctionTest">
+            <summary>
+            ExportFunction test class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.ExportFunctionTest.RunParameters">
+            <summary>
+            gets RunParameters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.ExportFunctionTest.CreateInstance_AllParameters_ShouldBeSuccess">
+            <summary>
+            Constructor test for all parameters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.ExportFunctionTest.CreateInstance_NullParamters_ThrowsArgumentNullException">
+            <summary>
+            Constructor test for null parameters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.ExportFunctionTest.RunActivity_NullParameters_ThrowsAgrumentNullException(System.String,Moq.Mock{Microsoft.Azure.WebJobs.Extensions.DurableTask.IDurableOrchestrationClient})">
+            <summary>
+            Test case to check if activity handles null paramaters.
+            </summary>
+            <param name="myQueueItem">myQueueItem.</param>
+            <param name="starter">starter.</param>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.ExportFunctionTest.Export_ForValidData_ShouldInvokeOnce">
+            <summary>
+            Test case to check if StartNewAsync method is called once to start ExportOrchestration.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.ExportFunctionTest.Export_InvalidData_ShouldInvokeNever">
+            <summary>
+            Test case to check if StartNewAsync method is never called to start ExportOrchestration.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.ExportFunctionTest.GetExportFunction">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.ExportFunction"/> class.
+            </summary>
+            <returns>return the instance of ExportFunction.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Streams.DataStreamFacadeTest">
+            <summary>
+            DataStreamFacade test class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Streams.DataStreamFacadeTest.DataStreamFacadeInstanceCreation_AllParameters_ShouldBeSuccess">
+            <summary>
+            Constructor test for all parameters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Streams.DataStreamFacadeTest.CreateInstance_NullParamters_ThrowsArgumentNullException">
+            <summary>
+            Constructor test for null parameters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Streams.DataStreamFacadeTest.GetUserData_NullParameter_ThrowsAgrumentNullException">
+            <summary>
+            Test case to check if method handles null parameters.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Streams.DataStreamFacadeTest.Get_BatchByUserIdsSevice_ShouldInvokeAtleastOnce">
+            <summary>
+            Test case to check if GetBatchByUserIds method is called at-least once based on GetStreamsService Response.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Streams.DataStreamFacadeTest.Get_BatchByUserIdsSevice_ShouldNeverBeInvokedForEmptysentNotificationData">
+            <summary>
+            Test case to check if GetBatchByUserIds method is never called as GetStreamsService returns empty response.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Streams.DataStreamFacadeTest.GetUserData_RecipientNotFound_ShouldNeverInvokeBatchByUserIds">
+            <summary>
+            Test case to check if GetBatchByUserIds method is never called as there is only recipientnotfound status in response.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Streams.DataStreamFacadeTest.GetUsersData_CorrectMapping_ReturnsUserDataObject">
+            <summary>
+            Test case to check if userdata object mapping is correct.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Streams.DataStreamFacadeTest.Get_ForbiddenGraphPermission_ReturnsAdminConsentError">
+            <summary>
+            Test case to check that return userData object contains AdminConsentError for name and upn.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Streams.DataStreamFacadeTest.Get_UserDeletedFromTenant_ReturnsEmptyRecord">
+            <summary>
+            Test case to check when user is deleted from the Tenant and from the User Data Table should return emty record.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Streams.DataStreamFacadeTest.Get_UserResponseNullFromGraph_ReturnsEmptyRecord">
+            <summary>
+            Test case to check when user is deleted from the Tenant and not from the User Data Table should return emty record.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Streams.DataStreamFacadeTest.Get_UserStatusReason_withErrorStatus">
+            <summary>
+            Test case to check that return userdata object's statusReason is with error from sendNotificationData.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Streams.DataStreamFacadeTest.Get_TeamDataSevice_ShouldInvokeAtleastOnce">
+            <summary>
+            Test case to check if GetAsync method(to get team data) is called atleast once based on response from GetStreamsAsync.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Streams.DataStreamFacadeTest.Get_TeamDataSevice_ShouldNeverBeInvokedForEmptysentNotificationData">
+            <summary>
+            Test case to check if GetAsync method(to get team data) is never called as GetStreamsService returns empty list.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Streams.DataStreamFacadeTest.GetTeamData_CorrectMapping_ReturnsTeamDataObject">
+            <summary>
+            Test case to check if teamdata object mapping is correct.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Streams.DataStreamFacadeTest.Get_TeamDeliveryStatus_SucceededFromNotificationData">
+            <summary>
+            Test case to check that return teamdata object is not null and contains deleveryStatus from sendNotificationData.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Streams.DataStreamFacadeTest.Get_TeamStatusReason_ReturnsErrorWithStatusReasonFromNotificationData">
+            <summary>
+            Test case to check that return teamdata object's statusReason is with error from sendNotificationData.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Streams.DataStreamFacadeTest.Get_NullFromDownStream_ReturnsNullForTeamName">
+            <summary>
+            Test case to check that return teamdata object contains name as null.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Streams.DataStreamFacadeTest.Get_CallBatchByUserIdsSevice_ThrowsServiceException">
+            <summary>
+            Test case to check if service exception is thrown when received GetUser service error which is not 403 (Forbidden).
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.Export.Streams.DataStreamFacadeTest.GetDataStreamFacadeInstance">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Export.Streams.DataStreamFacade"/> class.
+            </summary>
+            <returns>return the instance of DataStreamFacade.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.DataAggregationTriggerActivityTest">
+            <summary>
+            DataAggregationTriggerActivity test class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.DataAggregationTriggerActivityTest.DataAggregationTriggerActivityConstructorTest">
+            <summary>
+            Constructor tests.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.DataAggregationTriggerActivityTest.DataAggregationTriggerActivitySuccessTest">
+            <summary>
+            Test to check update notification and send message to data queue.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.DataAggregationTriggerActivityTest.DataAggregationTriggerActivityNotificationDataNotFound">
+            <summary>
+            Update notification was not done as notification data not found in repository for given notificationId.
+            Send message to data queue is success.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.DataAggregationTriggerActivityTest.ArgumentNullException_For_NotificatoinNull_Test">
+            <summary>
+            ArgumentNullException thrown for notificationId is null.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.DataAggregationTriggerActivityTest.RecipientCountZeroOrNegative_ArgumentOutOfRangeException_Test">
+            <summary>
+            ArgumentOutOfRangeException thrown for Recipient count is zero or negative.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.DataAggregationTriggerActivityTest.GetDataAggregationTriggerActivity">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.PreparingToSend.DataAggregationTriggerActivity"/> class.
+            </summary>
+            <returns>return the instance of DataAggregationTriggerActivity.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.HandleFailureActivityTest">
+            <summary>
+            HandleFailureActivity test class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.HandleFailureActivityTest.HandleFailureActivityConstuctorTest">
+            <summary>
+            Consturctor tests.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.HandleFailureActivityTest.HandleFailureActivitySuccessTest">
+            <summary>
+            Success scenario of HandleFailureActivity.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.HandleFailureActivityTest.HandleFailureActivityNullArgumentTest">
+            <summary>
+            Failure scenario of HandleFailureActivity.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.HandleFailureActivityTest.GetHandleFailureActivity">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.PreparingToSend.HandleFailureActivity"/> class.
+            </summary>
+            <returns>return the instance of HandleFailureActivity.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SendBatchMessagesActivityTest">
+            <summary>
+            SendBatchMessagesActivity test class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SendBatchMessagesActivityTest.SendBatchMessagesActivityConstructorTest">
+            <summary>
+            Constructor tests.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SendBatchMessagesActivityTest.SendBatchMessagesActivitySuccessTest">
+            <summary>
+            Test for send batch messages activity success scenario for Recipient type "User data".
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SendBatchMessagesActivityTest.SendBatchMessagesActivitySuccess_ForTeamRecipientTypeTest">
+            <summary>
+            Test for send batch messages activity success scenario for Reciepient type "Team data".
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SendBatchMessagesActivityTest.SendBatchMessagesActivityFailureTest">
+            <summary>
+            Failure test for Send batch messages as batch is null.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SendBatchMessagesActivityTest.GetSendBatchMessagesActivity">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.PreparingToSend.SendBatchMessagesActivity"/> class.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.StoreMessageActivityTest">
+            <summary>
+            StoreMessageActivity test class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.StoreMessageActivityTest.StoreMessageActivityConstructorTest">
+            <summary>
+            Constructor tests.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.StoreMessageActivityTest.StoreMessageActivitySuccessTest">
+            <summary>
+            Store message in repository.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.StoreMessageActivityTest.StoreMessageActivityFailureTest">
+            <summary>
+            Failure test for the Store message repository. ArgumentNullException thrown for NofiticationDataEntity null.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.StoreMessageActivityTest.GetStoreMessageActivity">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.PreparingToSend.StoreMessageActivity"/> class.
+            </summary>
+            <returns>return the instance of StoreMessageActivity.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncAllUsersActivityTest">
+            <summary>
+            SyncAllUsersActivity test class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncAllUsersActivityTest.SyncAllUsersActivityConstructorTest">
+            <summary>
+            Constructor tests.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncAllUsersActivityTest.SyncAllUsers_OnlyMemberTypeUsers_ShouldBeSavedInSentNotificationTable">
+            <summary>
+            Test case to verify all member type users gets stored in sentNotification table and also, get saved as partitions.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncAllUsersActivityTest.SyncAllUsers_GuestUsersFromGraph_ShouldNotBeSavedInTable">
+            <summary>
+            Test case to verify guest users from Graph service does not get saved in UserData table.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncAllUsersActivityTest.SyncAllUsers_AllGuestUsersFromDB_ShouldBeSavedInTable">
+            <summary>
+            Test case to verify existing guest users gets stored in sentNotificatinData table.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncAllUsersActivityTest.SyncAllUsers_NullUsersFromDB_ShouldNotThrowException">
+            <summary>
+            Test case to verify that no exception is thrown when there is no users in db.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncAllUsersActivityTest.SyncAllUsers_ExpiredDeltaLink_ThrowsInvalidOperationException">
+            <summary>
+            Test case to verify when deltalink is expired InvalidaOperationException is thrown to call SyncAllUsers again.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncAllUsersActivityTest.SyncAllUser_RemovedUsers_DeleteUserFromTable">
+            <summary>
+            Test method to verify that removed users as per deltalink from graph
+            should be deleted from User table.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncAllUsersActivityTest.SyncAllUsers_NoTeamsLicense_NeverGetSavedInTable">
+            <summary>
+            Test method to verify users with no team license will not get saved in UserData table.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncAllUsersActivityTest.SyncAllUsers_NullParameter_ShouldThrowException">
+            <summary>
+            Test case to check ArgumentNullException when parameter is null.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncAllUsersActivityTest.GetSyncAllUsersActivity">
+            <summary>
+            Initializes a new mock instance of the <see cref="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.PreparingToSend.SyncAllUsersActivity"/> class.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncGroupMembersActivityTest">
+            <summary>
+            SyncGroupMembersActivity test class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncGroupMembersActivityTest.ConstructorArgumentNullException_Test">
+            <summary>
+            Constructor tests.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncGroupMembersActivityTest.SyncGroupMembers_OnlyMemberNewUserType_StoreInSentNotificationTable">
+            <summary>
+            Test case to verify that new Member users is stored in Sent Notification Table.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncGroupMembersActivityTest.SyncGroupMembers_OnlyGuestNewUsersType_NeverStoreInSentNotificationTable">
+            <summary>
+            Test case to verify that new Guest Users never gets saved in Sent Notification Table.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncGroupMembersActivityTest.SyncGroupMembers_BothUserTypeForNewUser_StoreOnlyMemberUserType">
+            <summary>
+            Test case to verify that only Member user type is filtered from list of new Member user and Guest user,
+            and is saved in Sent Notification Table.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncGroupMembersActivityTest.SyncGroupMembers_OnlyMemberExistingUserType_StoreInSentNotificationTable">
+            <summary>
+            Test case to verify that existing Member users is stored in Sent Notification Table.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncGroupMembersActivityTest.SyncGroupMembers_OnlyGuestExistingUsersType_ShouldStoreInSentNotificationTable">
+            <summary>
+            Test case to verify that existing Guest Users gets saved in Sent Notification Table.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncGroupMembersActivityTest.SyncGroupMembers_BothUserTypeForExistingUser_ShouldStoreInSentNotificationTable">
+            <summary>
+            Test case to verify that both existing user is saved in Sent Notification Table.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncGroupMembersActivityTest.SyncGroupMembers_NullResponseFromGraph_CatchExceptionAndLog">
+            <summary>
+            Test case to check if exception is caught and logged in case graph returns null reponse.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncGroupMembersActivityTest.SyncGroupMembers_NullParameter_ShouldThrowException">
+            <summary>
+            Test case to check ArgumentNullException is thrown when parameter is null.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncGroupMembersActivityTest.GetSyncGroupMembersActivity">
+            <summary>
+            Initializes a new mock instance of the <see cref="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.PreparingToSend.SyncGroupMembersActivity"/> class.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncTeamMembersActivityTest">
+            <summary>
+            SyncTeamMembersActivity test class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncTeamMembersActivityTest.SyncTeamMembersActivityConstructorTest">
+            <summary>
+            Constructor tests.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncTeamMembersActivityTest.SyncTeamMembers_OnlyExistingMemberUser_StoreInSentNotificationTable">
+            <summary>
+            Test case to verify that existing Member users is stored in Sent Notification Table.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncTeamMembersActivityTest.SyncTeamMembers_OnlyExistingGuestUser_StoreInSentNotificationTable">
+            <summary>
+            Test case to verify that existing Guest Users gets saved in Sent Notification Table.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncTeamMembersActivityTest.SyncTeamMembers_BothUserTypeForExistingUser_ShouldStoreBothUserType">
+            <summary>
+            Test case to verify that both user type i.e. existing Member user and Guest user
+            is saved in Sent Notification Table.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncTeamMembersActivityTest.SyncTeamMembers_OnlyNewMemberUser_StoreInSentNotificationTable">
+            <summary>
+            Test case to verify that new Member users is stored in Sent Notification Table.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncTeamMembersActivityTest.SyncTeamMembers_OnlyNewGuestUser_NeverStoreInSentNotificationTable">
+            <summary>
+            Test case to verify that existing Guest Users never gets saved in Sent Notification Table.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncTeamMembersActivityTest.SyncTeamMembers_BothUserTypeForNewUser_StoreOnlyMemberUserType">
+            <summary>
+            Test case to verify that only Member user type is filtered from list of new Member user and Guest user,
+            and is saved in Sent Notification Table.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncTeamMembersActivityTest.SyncTeamMemberActivity_TeamInfoNotFoundTest">
+            <summary>
+            Test for team Members info not found scenario.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncTeamMembersActivityTest.SyncTeamMembers_NullResponseFromBotAPI_CatchExceptionAndLog">
+            <summary>
+            Test case to check if exception is caught and logged in case graph returns null reponse.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncTeamMembersActivityTest.ArgumentNullExceptionTest">
+            <summary>
+            ArgumentNullException Test.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncTeamMembersActivityTest.GetSyncTeamMembersActivity">
+            <summary>
+            Initializes a new mock instance of the <see cref="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.PreparingToSend.SyncTeamMembersActivity"/> class.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncTeamsActivityTest">
+            <summary>
+            SyncTeamsActivity test class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncTeamsActivityTest.SyncTeamsActivityConstructorTest">
+            <summary>
+            Constructor test.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncTeamsActivityTest.SyncTeamsActivitySuccessTest">
+            <summary>
+            Sync Teams activity success test.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncTeamsActivityTest.SyncTeamsActivitySuccessWithSaveWarningNotificationTest">
+            <summary>
+            Sync teams data to Sent notification repository. Save warning message logged for each team that is absent in repository.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncTeamsActivityTest.SyncTeamsActivityNullArgumentTest">
+            <summary>
+            SyncTeamsActivity argumentNullException test.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.SyncTeamsActivityTest.GetSyncTamActivity">
+            <summary>
+            Initializes a new mock instance of the <see cref="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.PreparingToSend.SyncTeamsActivity"/> class.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.TeamsConversationActivityTest">
+            <summary>
+            TeamsConversationActivity test class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.TeamsConversationActivityTest.TeamsConversationActivityConstructorTest">
+            <summary>
+            Constructor tests.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.TeamsConversationActivityTest.CreateConversationAsyncTest_TeamRecipientType">
+            <summary>
+            Test to check TeamRecipientType not null. No-op for Team recipient type.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.TeamsConversationActivityTest.CreateConversationAsync">
+            <summary>
+            Success scenario to create conversation for users with teams user id.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.TeamsConversationActivityTest.CreateConversationAsync_UserIdNullOrEmpty">
+            <summary>
+            Conversation not created as Proactive app installation is disabled.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.TeamsConversationActivityTest.TeamConversation_GuestUser_ShouldNotDoAnything">
+            <summary>
+            Test case to verify that do not process anything in case of guest user.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.TeamsConversationActivityTest.TeamConversation_NullUserType_ShouldNotThrowException">
+            <summary>
+            Test case to verify that exception is not thrown in case of null user type.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.TeamsConversationActivityTest.ProactiveAppInstallationEnabledTest">
+            <summary>
+            Create Conversation check when Proactive app installation flag enabled. ConversationId is empty.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.TeamsConversationActivityTest.ArgumentNullExceptionTest">
+            <summary>
+            ArgumentNullException test.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.TeamsConversationActivityTest.GetTeamsConversationActivity(System.Boolean)">
+            <summary>
+            Initializes a new mock instance of the <see cref="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.PreparingToSend.TeamsConversationActivity"/> class.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.UpdateNotificationStatusActivityTest">
+            <summary>
+            UpdateNotificationStatusActivity test class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.UpdateNotificationStatusActivityTest.NotificationRepositoryConstructorTest">
+            <summary>
+            Constructor tests.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.UpdateNotificationStatusActivityTest.UpdateNotificationStatusActivitySuccessTest">
+            <summary>
+            Test to check notification.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.UpdateNotificationStatusActivityTest.ArgumentNullExceptionTest">
+            <summary>
+            ArgumentNullException test.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Activities.UpdateNotificationStatusActivityTest.GetUpdateNotificationStatusActivity">
+            <summary>
+            Initializes a new mock instance of the <see cref="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.PreparingToSend.UpdateNotificationStatusActivity"/> class.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Orchestrators.PrepareToSendOrchestratorTest">
+            <summary>
+            Prepare to Send orchestratorTest.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Orchestrators.PrepareToSendOrchestratorTest.PrepareToSendOrchestratorSuccessTest">
+            <summary>
+            Prepare to send orchestrator success Test.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Orchestrators.PrepareToSendOrchestratorTest.PrepareToSendOrchestration_NoRecipientsPendingInstallation_ShouldNotInvokeTeamsConversationOrchestrator">
+            <summary>
+            Test case to check that when there are no recipients having pending installation, teams conversation orchestrator should not be invoked.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Orchestrators.PrepareToSendOrchestratorTest.PrepareToSendOrchestration_NullRecipientInfo_ShouldInvokeHandleFailureActivity">
+            <summary>
+            Test case to check that when there is null recipient info then invoke handle failure activity.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Orchestrators.PrepareToSendOrchestratorTest.PrepareToSendOrchestration_ExceptionThrownFromInvokedSubOrchestrator_ShouldInvokeHandleFailureActivity">
+            <summary>
+            Test case to check that when there is an exception thrown on invoke of Sub Orchestrator then handle failure activity should be invoked.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Orchestrators.PrepareToSendOrchestratorTest.PrepareToSendOrchestration_ExceptionThrownFromInvokedActivity_ShouldInvokeHandleFailureActivity">
+            <summary>
+            Test case to check that when there is an exception thrown on invoke of Sub Orchestrator then handle failure activity should be invoked.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Orchestrators.PrepareToSendOrchestratorTest.PrepareToSendOrchestratorSuccessWithReplayingFlagTrueTest">
+            <summary>
+             PrepareToSendOrchestratorSuccess test with replaying flag true.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Orchestrators.SendQueueOrchestratorTest">
+            <summary>
+            SendQueueOrchestrator test class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Orchestrators.SendQueueOrchestratorTest.RunOrchestratorTest">
+            <summary>
+            Reads the batch recipients. Sends messages to Send Queue in batches.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Orchestrators.SyncRecipientsOrchestratorTest">
+            <summary>
+            SyncRecipientsOrchestrator test class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Orchestrators.SyncRecipientsOrchestratorTest.SyncRecipientsOrchestratorGetAllUsersTest">
+            <summary>
+            Syncs all set of recipients to repository.
+            </summary>
+            <returns><see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Orchestrators.SyncRecipientsOrchestratorTest.SyncRecipientsOrchestratorGetMembersOfSpecifictTeamTest">
+            <summary>
+            Syncs Members of specific teams to repository.
+            </summary>
+            <returns><see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Orchestrators.SyncRecipientsOrchestratorTest.SyncRecipientsOrchestratorGetMembersOfGroupsTest">
+            <summary>
+            Syncs Members of M365 groups, DG or SG to repository.
+            </summary>
+            <returns><see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Orchestrators.SyncRecipientsOrchestratorTest.SyncRecipientsOrchestratorGetMembersOfGeneralChannelTest">
+            <summary>
+            Syncs Members of general channel to repository.
+            </summary>
+            <returns><see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Orchestrators.SyncRecipientsOrchestratorTest.SyncRecipientsOrchestratorForInvalidAudienceSelectionTest">
+            <summary>
+            Sync recipients for invalid Audience.
+            </summary>
+            <returns><see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Orchestrators.TeamsConversationOrchestratorTest">
+            <summary>
+            TeamsConversationOrchestrator test class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Orchestrators.TeamsConversationOrchestratorTest.TeamsConversationRunOrchestratorTest">
+            <summary>
+            Gets all the pending recipients and creates conversation with each recipient.
+            1. Checks if teams conversation activity is called exactly as the count of recipients.
+            2. Checks if each recipients batch partition key is updated to notification id.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PreparingToSend.Orchestrators.TeamsConversationOrchestratorTest.TeamsConversationOrchestrator_NoRecipients_ShouldNotInvokeTeamsConversationActivity">
+            <summary>
+            Gets all the pending recipients and creates conversation with each recipient.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.RecipientsActivityTest">
+            <summary>
+            RecipientsActivity test class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.RecipientsActivityTest.GetRecipientsActivityConstructorTest">
+            <summary>
+            constructor Tests.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.RecipientsActivityTest.GetRecipients_AllParameters_ShouldBeSuccess">
+            <summary>
+            Get all the recipients from repository (Where some recipients have conversation id and some do not).
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.RecipientsActivityTest.GetRecipients_NullParameter_ShouldThrowArgumentNullException">
+            <summary>
+            Test for Get Recipients Activity failed when notification is null.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.RecipientsActivityTest.GetPendingRecipients_AllParameters_ShouldBeSuccess">
+            <summary>
+            Get the batch recipients, which do not have a conversation id.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.RecipientsActivityTest.GetPendingRecipients_NullParameter_ShouldThrowArgumentNullException">
+            <summary>
+            Test for Get pending recipients failure as NotificationDataEntity is null.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.RecipientsActivityTest.BatchRecipients_AllParameters_ShouldBeSuccess">
+            <summary>
+            Batch all the recipients and return the recipients information.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.RecipientsActivityTest.BatchRecipients_NullParameter_ShouldThrowArgumentNullException">
+            <summary>
+            Test case to check BatchRecipients when notification id is null.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.RecipientsActivityTest.RecipientsActivity">
+            <summary>
+            Initializes a new instance of the <see cref="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.RecipientsActivityTest.RecipientsActivity"/> class.
+            </summary>
+            <returns>return the instance of RecipientsActivity.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PrepareToSendFunctionTest">
+            <summary>
+            PrepareToSendFunction test class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PrepareToSendFunctionTest.PrepareToSendFunctionConstructorNullValueTest">
+            <summary>
+            Constructor Test with null value.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PrepareToSendFunctionTest.PrepareToSendFunctionConstructorSuccessTest">
+            <summary>
+            Constructor test.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PrepareToSendFunctionTest.PrepareToSendFunctionNotificationEntityNotFoundTest">
+            <summary>
+            SendNotificationData not found test.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PrepareToSendFunctionTest.PrepareToSendFunctionSuccessTest">
+            <summary>
+            PrepareToSendFunctionSuccess test.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PrepareToSendFunctionTest.GetPrepareToSendFunction">
+            <summary>
+            Initializes a new mock instance of the <see cref="M:Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Test.PrepareToSendFunctionTest.GetPrepareToSendFunction"/> class.
+            </summary>
+        </member>
+    </members>
+</doc>

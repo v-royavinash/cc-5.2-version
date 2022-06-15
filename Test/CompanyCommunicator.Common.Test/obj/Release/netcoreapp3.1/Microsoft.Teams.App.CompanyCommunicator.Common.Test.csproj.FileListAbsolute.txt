@@ -1,0 +1,4 @@
+C:\Repos\MIFT-CompanyCommunicator\Source\Test\CompanyCommunicator.Common.Test\obj\Release\netcoreapp3.1\Microsoft.Teams.App.CompanyCommunicator.Common.Test.csproj.AssemblyReference.cache
+C:\Repos\MIFT-CompanyCommunicator\Source\Test\CompanyCommunicator.Common.Test\obj\Release\netcoreapp3.1\Microsoft.Teams.App.CompanyCommunicator.Common.Test.AssemblyInfoInputs.cache
+C:\Repos\MIFT-CompanyCommunicator\Source\Test\CompanyCommunicator.Common.Test\obj\Release\netcoreapp3.1\Microsoft.Teams.App.CompanyCommunicator.Common.Test.AssemblyInfo.cs
+C:\Repos\MIFT-CompanyCommunicator\Source\Test\CompanyCommunicator.Common.Test\obj\Release\netcoreapp3.1\Microsoft.Teams.App.CompanyCommunicator.Common.Test.csproj.CoreCompileInputs.cache

@@ -1,0 +1,321 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Teams.App.CompanyCommunicator.Common.Test</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Extensions.EnumerableExtensionsTest">
+            <summary>
+            Enumerable Extensions Test.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Extensions.EnumerableExtensionsTest.Data">
+            <summary>
+            Gets data for AsBatches Test.
+            Format: { each batch size, expected count of batches, list of data }.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Extensions.EnumerableExtensionsTest.Check_AllValues_ShouldBeSuccess">
+            <summary>
+            Test case to check if list with value is success.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Extensions.EnumerableExtensionsTest.Check_NullValues_ShouldBeSucess">
+            <summary>
+            Test case to check if null list is success.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Extensions.EnumerableExtensionsTest.CheckAsBatches_AllValues_ShouldBeSuccess(System.Int32,System.Int32,System.Collections.Generic.List{System.String})">
+            <summary>
+            Test case to check AsBatches is success with multiple values.
+            </summary>
+            <param name="batchSize">batch size.</param>
+            <param name="expectedSize">expected output count.</param>
+            <param name="inputList">source collection.</param>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Extensions.EnumerableExtensionsTest.GetData(System.Int32)">
+            <summary>
+            Get the list of data.
+            </summary>
+            <param name="count">the count.</param>
+            <returns>list of data.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Extensions.StringExtensionsTest">
+            <summary>
+            String extension tests.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Extensions.StringExtensionsTest.Check_AppendNewLine_ShouldBeSuccess">
+            <summary>
+            Test case to check if new string is appended to original string.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Extensions.StringExtensionsTest.AddEmptyString_AppendNewLine_ShouldBeSuccess">
+            <summary>
+            Test case to check if original string is returned if empty string is tried to be appended.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Extensions.StringExtensionsTest.AddOnEmptyString_AppendNewLine_ShouldBeSuccess">
+            <summary>
+            Test case to check if new string is returned in case original string is empty.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Repositories.NotificationData.NotificationDataRepositoryTests">
+            <summary>
+            Notification Data Repository unit tests.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Repositories.NotificationData.NotificationDataRepositoryTests.SaveMessageTestCasesData">
+            <summary>
+            Gets data for SaveExceptionInNotificationDataEntityAsync_SavesExceptionInfo and SaveWarningInNotificationDataEntityAsync_SavesWarningInfo.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Repositories.NotificationData.NotificationDataRepositoryTests.CreateInstance_AllParameters_ShouldBeSuccess">
+            <summary>
+            Check if NotificationData repository can be instantiated successfully.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Repositories.NotificationData.NotificationDataRepositoryTests.SaveExceptionInNotificationDataEntityAsync_SavesExceptionInfo(Microsoft.Teams.App.CompanyCommunicator.Common.Test.Repositories.NotificationData.NotificationDataRepositoryTests.SaveMessageTestData)">
+            <summary>
+            Check that SaveExceptionInNotificationDataEntityAsync saves the exception info to table storage, up to a maximum length.
+            </summary>
+            <param name="testData">Test data.</param>
+            <returns>Tracking task.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Repositories.NotificationData.NotificationDataRepositoryTests.SaveWarningInNotificationDataEntityAsync_SavesWarningInfo(Microsoft.Teams.App.CompanyCommunicator.Common.Test.Repositories.NotificationData.NotificationDataRepositoryTests.SaveMessageTestData)">
+            <summary>
+            Check that SaveWarningInNotificationDataEntityAsync saves the warning info to table storage, up to a maximum length.
+            </summary>
+            <param name="testData">Test data.</param>
+            <returns>Tracking task.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Repositories.NotificationData.NotificationDataRepositoryTests.SaveMessageTestData">
+            <summary>
+            Data for tests that check message saving to table.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Repositories.NotificationData.NotificationDataRepositoryTests.SaveMessageTestData.InitialMessage">
+            <summary>
+            Gets or sets the initial message value.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Repositories.NotificationData.NotificationDataRepositoryTests.SaveMessageTestData.ShouldUpdateMessage">
+            <summary>
+            Gets or sets a value indicating whether the message should be updated.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Repositories.NotificationData.NotificationDataRepositoryTests.SaveMessageTestData.FailMessage">
+            <summary>
+            Gets or sets the message to print if the test case fails.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.MicrosoftGraph.UsersServiceTests">
+            <summary>
+            Users Service unit tests.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.MicrosoftGraph.UsersServiceTests.CreateInstance_AllParameters_ShouldBeSuccess">
+            <summary>
+            Test case to check if Users service is instanticated successfully.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.MicrosoftGraph.UsersServiceTests.CreateInstance_NullParameters_ThrowsArgumentNullException">
+            <summary>
+            Test case to check if ArgumentNullException is thrown for null parameters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.MicrosoftGraph.UsersServiceTests.GetBatch_NullParameter_ThrowsArgumentNullException">
+            <summary>
+            Test case to check if ArgumentNullException is thrown for null parameter in GetBatchByUserIds method.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.MicrosoftGraph.UsersServiceTests.GetBatch_EmptyParameter_ReturnsEmptyResponse">
+            <summary>
+            Test case to check if response is empty for empty parameters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.MicrosoftGraph.UsersServiceTests.GetBatch_UserBatchCountOver15_ShouldThrowInvalidOperationExcetpion">
+            <summary>
+            Test case to check if InvalidOperationException is thrown if user batch count is over 15.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.MicrosoftGraph.UsersServiceTests.GetBatch_UserBatchSizeOver20_ShouldMatchResponseCount">
+            <summary>
+            Test case to check if we get exact batch count of 8.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.MicrosoftGraph.UsersServiceTests.GetBatch_AllParameters_ShouldMapCorrectly">
+            <summary>
+            Test case to check if we user mapping is correct.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.MicrosoftGraph.UsersServiceTests.GetBatch_UserBatchSizeOf1_ShouldMatchResponseCount">
+            <summary>
+            Test case to check if we get exact batch count of 4.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.MicrosoftGraph.UserTypeServiceTest">
+            <summary>
+            User Type service test.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.MicrosoftGraph.UserTypeServiceTest.UserTypeService_NullParameters_ShouldThrowException">
+            <summary>
+            Test case to check if ArgumentNullException is thrown if parameters are null.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.MicrosoftGraph.UserTypeServiceTest.UserTypeService_NullUserData_ShouldNotSaveData">
+            <summary>
+            Test case to verify that no action is taken when user data is null.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.MicrosoftGraph.UserTypeServiceTest.UserTypeService_NullUserType_ShouldThrowException">
+            <summary>
+            Test case to verify that exception is thrown when user type parameter is null.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.MicrosoftGraph.UserTypeServiceTest.UserTypeService_ExistingUserType_ShouldNotSaveData">
+            <summary>
+            Test case to verify that no action is taken when user data has user type assigned.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.MicrosoftGraph.UserTypeServiceTest.UserTypeService_CorrectParameters_ShouldSaveData">
+            <summary>
+            Test case to check that if data is saved when the parameters is correct.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.MicrosoftGraph.UserTypeServiceTest.UserTypeService_NullParameters_ShouldNotSaveData">
+            <summary>
+            Test case to check that no action is taken when there is null user data entities.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.MicrosoftGraph.UserTypeServiceTest.UserTypeService_UserTypeAssigned_ShouldNotSaveData">
+            <summary>
+            Test case to verify that no data is saved when all users have user type assigned.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.MicrosoftGraph.UserTypeServiceTest.UserTypeService_SomeUserTypeAssigned_ShouldSaveData">
+            <summary>
+            Test case to verify that data is saved when there is no assignment for some user type.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.MicrosoftGraph.UserTypeServiceTest.UserTypeService_NoUserTypeAssigned_ShouldSaveData">
+            <summary>
+            Test case to verify that data is saved when there is no user type.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.MicrosoftGraph.UserTypeServiceTest.UserTypeService_NullResponseFromGraph_ShouldNotSaveData">
+            <summary>
+            Test case to verify that no action is taken on null data response from graph.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.MicrosoftGraph.UserTypeServiceTest.UserTypeService_NullResponseInUserListFromGraph_ShouldThrowException">
+            <summary>
+            Test case to verify that exception is thrown when user is null in the response from graph.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.Mock.MockAuthenticationHelper">
+            <summary>
+            Mocking Authentication Provider.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.Mock.MockAuthenticationHelper.AuthenticateRequestAsync(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Mock authenticate request.
+            </summary>
+            <param name="request">Represents a HttpRequestMessage.</param>
+            <returns>asynchronous operation.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.Mock.MockHttpProvider">
+            <summary>
+            Mocking Http provider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.Mock.MockHttpProvider.Serializer">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.Mock.MockHttpProvider.OverallTimeout">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.Mock.MockHttpProvider.Responses">
+            <summary>
+            Gets or sets response mapping with key, resposne.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.Mock.MockHttpProvider.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.Mock.MockHttpProvider.SendAsync(System.Net.Http.HttpRequestMessage)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.Mock.MockHttpProvider.SendAsync(System.Net.Http.HttpRequestMessage,System.Net.Http.HttpCompletionOption,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.Recipients.RecipientsServiceTest">
+            <summary>
+            RecipientsService test.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.Recipients.RecipientsServiceTest.RecipientService_NullParameters_ShouldThrowArgumentNullException">
+            <summary>
+            Test case to check if ArgumentNullException is thrown if parameters is null.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.Recipients.RecipientsServiceTest.BatchRecipients_NullParameters_ShouldThrowArgumentNullException">
+            <summary>
+            Test case to check if argument null exception is thrown when parameters are null.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.Recipients.RecipientsServiceTest.BatchRecipients_AllParameters_ShouldBeSuccess">
+            <summary>
+            Test case for success case.
+            1. Check if total recipient count is correct.
+            2. Check if HasRecipientsPendingInstallation is true, when there is no conversation id in the recipients.
+            3. Check if batch partition key was updated in the recipient partition key field.
+            4. Check if BatchInsertOrMerge call was invoked as many times as the batches count.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Services.Recipients.RecipientsServiceTest.BatchRecipients_AllConverstaionId_HasPendingInstallationShouldBeFalse">
+            <summary>
+            Test case to check if HasRecipientsPendingInstallation is false, when there all conversation id are filled.
+            </summary>
+            <returns>A task that represents the work queued to execute.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Utilities.PartitionKeyUtilityTest">
+            <summary>
+            PartitionKeyUtility Test.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Utilities.PartitionKeyUtilityTest.CreateBatchPartitionKey_CorrectParameters_ShouldBeSuccess">
+            <summary>
+            Test case to check if batch partition key is generated as expected.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Utilities.PartitionKeyUtilityTest.GetNotificationIdFromBatchPartitionKey_CorrectParameters_ShouldBeSuccess">
+            <summary>
+            Test case to check if notification id can be extracted from batch partition key.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Utilities.PartitionKeyUtilityTest.GetBatchIdFromBatchPartitionKey_CorrectParameters_ShouldBeSuccess">
+            <summary>
+            Test case to check if batch id can be extracted from batch partition key.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.CompanyCommunicator.Common.Test.Utilities.PartitionKeyUtilityTest.GetNotificationIdFromBatchPartitionKey_InCorrectParameters_ShouldBeSuccess">
+            <summary>
+            Test case to check if exception is thrown if batch partition key is of not expected format.
+            </summary>
+        </member>
+    </members>
+</doc>

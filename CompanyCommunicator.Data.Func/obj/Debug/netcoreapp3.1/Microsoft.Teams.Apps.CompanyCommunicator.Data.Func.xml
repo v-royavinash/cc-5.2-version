@@ -1,0 +1,334 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Teams.Apps.CompanyCommunicator.Data.Func</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.CleanUpFileOptions">
+            <summary>
+            Options used for holding clean up file number in days.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.CleanUpFileOptions.CleanUpFile">
+            <summary>
+            Gets or sets the clean up file number in days.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.CompanyCommunicatorCleanUpFunction">
+            <summary>
+            Azure Function App triggered as per scheduled.
+            Used for house keeping activites.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.CompanyCommunicatorCleanUpFunction.#ctor(Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.ExportData.IExportDataRepository,Azure.Storage.Blobs.BlobContainerClient,Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.FileCardServices.IFileCardService,Microsoft.Extensions.Options.IOptions{Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.CleanUpFileOptions})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.CompanyCommunicatorCleanUpFunction"/> class.
+            </summary>
+            <param name="exportDataRepository">The export data repository.</param>
+            <param name="blobContainerClient">The Azure Blob storage container client.</param>
+            <param name="fileCardService">The service to manage the file card.</param>
+            <param name="cleanUpFileOptions">The options to clean up file.</param>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.CompanyCommunicatorCleanUpFunction.Run(Microsoft.Azure.WebJobs.TimerInfo,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Azure Function App triggered as per scheduled.
+            Used for house keeping activites.
+            </summary>
+            <param name="myTimer">The timer schedule.</param>
+            <param name="log">The logger.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.CompanyCommunicatorCleanUpFunction.DeleteFilesAndCards(System.Collections.Generic.IEnumerable{Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.ExportData.ExportDataEntity})">
+            <summary>
+            This deletes the files in Azure Blob storage and file cards sent to users.
+            </summary>
+            <param name="exportDataEntities">the list of export data entity.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.CompanyCommunicatorDataFunction">
+            <summary>
+            Azure Function App triggered by messages from a Service Bus queue
+            Used for incrementing results for a sent notification.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.CompanyCommunicatorDataFunction.#ctor(Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.NotificationData.INotificationDataRepository,Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.AggregateSentNotificationDataService,Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.UpdateNotificationDataService,Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.MessageQueues.DataQueue.IDataQueue,Microsoft.Extensions.Options.IOptions{Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.DataQueueMessageOptions})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.CompanyCommunicatorDataFunction"/> class.
+            </summary>
+            <param name="notificationDataRepository">The notification data repository.</param>
+            <param name="aggregateSentNotificationDataService">The service to aggregate the Sent
+            Notification Data results.</param>
+            <param name="updateNotificationDataService">The service to update the notification totals.</param>
+            <param name="dataQueue">The data queue.</param>
+            <param name="dataQueueMessageOptions">The data queue message options.</param>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.CompanyCommunicatorDataFunction.Run(System.String,System.Int32,System.DateTime,System.String,Microsoft.Extensions.Logging.ILogger,Microsoft.Azure.WebJobs.ExecutionContext)">
+            <summary>
+            Azure Function App triggered by messages from a Service Bus queue
+            Used for aggregating results for a sent notification.
+            </summary>
+            <param name="myQueueItem">The Service Bus queue item.</param>
+            <param name="deliveryCount">The deliver count.</param>
+            <param name="enqueuedTimeUtc">The enqueued time.</param>
+            <param name="messageId">The message ID.</param>
+            <param name="log">The logger.</param>
+            <param name="context">The execution context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.DataQueueMessageOptions">
+            <summary>
+            Options for data queue messages.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.DataQueueMessageOptions.FirstTenMinutesRequeueMessageDelayInSeconds">
+            <summary>
+            Gets or sets the value for the delay to be applied to the
+            requeued data queue trigger message if the trigger message
+            is to be requeued in the first ten minutes of the notification
+            being sent - this way, the initial results can be aggregated
+            more often and displayed to the user faster so they are
+            confident sending has started and is progressing.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.DataQueueMessageOptions.RequeueMessageDelayInSeconds">
+            <summary>
+            Gets or sets the value for the delay to be applied to the
+            requeued data queue trigger message if the trigger message
+            is to be requeued after the first ten minutes of the notification
+            being sent.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.FileCardServices.FileCardService">
+            <summary>
+            The file card service to manange the card.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.FileCardServices.FileCardService.#ctor(Microsoft.Extensions.Options.IOptions{Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.CommonBot.BotOptions},Microsoft.Teams.Apps.CompanyCommunicator.Common.Adapter.ICCBotFrameworkHttpAdapter,Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.UserData.IUserDataRepository,Microsoft.Extensions.Localization.IStringLocalizer{Microsoft.Teams.Apps.CompanyCommunicator.Common.Resources.Strings})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.FileCardServices.FileCardService"/> class.
+            </summary>
+            <param name="botOptions">the bot options.</param>
+            <param name="botAdapter">the users service.</param>
+            <param name="userDataRepository">the user data repository.</param>
+            <param name="localizer">Localization service.</param>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.FileCardServices.FileCardService.DeleteAsync(System.String,System.String)">
+            <summary>
+            Delete the card and send the permission expired message.
+            </summary>
+            <param name="userId">the user id.</param>
+            <param name="fileConsentId">the file consent id.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.FileCardServices.IFileCardService">
+            <summary>
+            The file card service to manange the card.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.FileCardServices.IFileCardService.DeleteAsync(System.String,System.String)">
+            <summary>
+            Delete the card and send the permission expired message.
+            </summary>
+            <param name="userId">the user id.</param>
+            <param name="fileConsentId">the file consent id.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.AggregatedSentNotificationDataResults">
+            <summary>
+            An aggregation of the currently known results for a sent notification.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.AggregatedSentNotificationDataResults.CurrentTotalNotificationCount">
+            <summary>
+            Gets or sets the total currently known count of notification results.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.AggregatedSentNotificationDataResults.SucceededCount">
+            <summary>
+            Gets or sets the currently known count of successfully sent notifications.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.AggregatedSentNotificationDataResults.FailedCount">
+            <summary>
+            Gets or sets the currently known count of notifications that failed to send.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.AggregatedSentNotificationDataResults.ThrottledCount">
+            <summary>
+            Gets or sets the currently known count of notifications that were throttled.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.AggregatedSentNotificationDataResults.RecipientNotFoundCount">
+            <summary>
+            Gets or sets the currently known count of notifications with recipient not found issue.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.AggregatedSentNotificationDataResults.LastSentDate">
+            <summary>
+            Gets or sets the sent date of the last known notification.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.AggregatedSentNotificationDataResults.UpdateAggregatedResults(Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.SentNotificationData.SentNotificationDataEntity)">
+            <summary>
+            Update the aggregated results with the given sent notification data.
+            </summary>
+            <param name="sentNotification">The sent notification data entity.</param>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.AggregateSentNotificationDataService">
+            <summary>
+            A service that fetches and aggregates the Sent Notification Data results.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.AggregateSentNotificationDataService.#ctor(Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.SentNotificationData.ISentNotificationDataRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.AggregateSentNotificationDataService"/> class.
+            </summary>
+            <param name="sentNotificationDataRepository">The sent notification data repository.</param>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.AggregateSentNotificationDataService.AggregateSentNotificationDataResultsAsync(System.String,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Fetches all of the current known results for the Sent Notification and calculates the various totals
+            as results.
+            </summary>
+            <param name="notificationId">The notification ID.</param>
+            <param name="log">The logger.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.OrchestrationStatus">
+            <summary>
+            Orchestration instance status.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.OrchestrationStatus.Running">
+            <summary>
+            Orchestration instance is Running.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.OrchestrationStatus.Terminated">
+            <summary>
+            Orchestration instance is Terminated.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.OrchestrationStatus.Completed">
+            <summary>
+            Orchestration instance is Completed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.OrchestrationStatusResponse">
+            <summary>
+            Orchestration Status response.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.OrchestrationStatusResponse.Name">
+            <summary>
+            Gets or sets the orchestration name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.OrchestrationStatusResponse.InstanceId">
+            <summary>
+            Gets or sets the Instance id of the orchestration.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.OrchestrationStatusResponse.RuntimeStatus">
+            <summary>
+            Gets or sets the runtime status of the orchestration.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.UpdateNotificationDataEntity">
+            <summary>
+            A subset of the full NotificationDataEntity setting fields as nullable in order to
+            perform an update without needing to set the full object. Needed in order to not
+            overwrite unset non-nullable values from the full NotificationDataEntity and remove
+            unexpected data from the existing database row e.g. not setting TotalMessageCount for this
+            entity will not result in the value being set to 0 in the database by mistake.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.UpdateNotificationDataEntity.Succeeded">
+            <summary>
+            Gets or sets the number of recipients who have received the notification successfully.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.UpdateNotificationDataEntity.Failed">
+            <summary>
+            Gets or sets the number of recipients who failed in receiving the notification.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.UpdateNotificationDataEntity.RecipientNotFound">
+            <summary>
+            Gets or sets the number of not found recipients.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.UpdateNotificationDataEntity.Throttled">
+            <summary>
+            Gets or sets the number of recipients who were throttled out.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.UpdateNotificationDataEntity.Unknown">
+            <summary>
+            Gets or sets the number or recipients who have an unknown status.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.UpdateNotificationDataEntity.SentDate">
+            <summary>
+            Gets or sets the Sent DateTime value.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.UpdateNotificationDataEntity.Status">
+            <summary>
+            Gets or sets Notification status.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.UpdateNotificationDataEntity.Canceled">
+            <summary>
+            Gets or sets the number or recipients who have canceled status.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.UpdateNotificationDataEntity.IsCompleted">
+            <summary>
+            Checks if the notification is completed.
+            </summary>
+            <returns>If the notification is completed.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.UpdateNotificationDataService">
+            <summary>
+            Service to update notification data.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.UpdateNotificationDataService.#ctor(Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.NotificationData.INotificationDataRepository,System.Net.Http.IHttpClientFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.UpdateNotificationDataService"/> class.
+            </summary>
+            <param name="notificationDataRepository">The notification data repository.</param>
+            <param name="httpClientFactory">The HTTP client factory.</param>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.UpdateNotificationDataService.UpdateNotificationDataAsync(System.String,System.String,System.Boolean,System.Int32,Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.AggregatedSentNotificationDataResults,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Updates the notification totals with the given information and results.
+            </summary>
+            <param name="notificationId">The notification ID.</param>
+            <param name="orchestrationStatus">The orchestration status of the notification.</param>
+            <param name="shouldForceCompleteNotification">Flag to indicate if the notification should
+            be forced to be marked as completed.</param>
+            <param name="totalExpectedNotificationCount">The total expected count of notifications to be sent.</param>
+            <param name="aggregatedSentNotificationDataResults">The current aggregated results for
+            the sent notifications.</param>
+            <param name="log">The logger.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.NotificationDataServices.UpdateNotificationDataService.GetOrchestrationStatusAsync(System.String)">
+            <summary>
+            Get the orchestration status of the notification.
+            </summary>
+            <param name="functionPayload">the payload of the orchestration containing Status Uri, Terminate Uri etc.</param>
+            <returns>the status of the orchestration.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Startup">
+            <summary>
+            Register services in DI container of the Azure functions system.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Startup.Configure(Microsoft.Azure.Functions.Extensions.DependencyInjection.IFunctionsHostBuilder)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>
