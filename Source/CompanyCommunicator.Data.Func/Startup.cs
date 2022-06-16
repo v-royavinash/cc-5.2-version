@@ -16,6 +16,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Data.Func
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Adapter;
+    using Microsoft.Teams.Apps.CompanyCommunicator.Common.Clients;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Extensions;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.ExportData;
@@ -118,6 +119,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Data.Func
             builder.Services.AddSingleton<IDataQueue, DataQueue>();
 
             builder.Services.AddTransient<IBlobStorageProvider, BlobStorageProvider>();
+            builder.Services.AddTransient<IStorageClientFactory, StorageClientFactory>();
         }
     }
 }
