@@ -23,6 +23,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Data.Func
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.SentNotificationData;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.UserData;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Secrets;
+    using Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.Blob;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.CommonBot;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.MessageQueues.DataQueue;
     using Microsoft.Teams.Apps.CompanyCommunicator.Data.Func.Services.FileCardServices;
@@ -115,6 +116,8 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Data.Func
 
             // Add service bus message queues.
             builder.Services.AddSingleton<IDataQueue, DataQueue>();
+
+            builder.Services.AddTransient<IBlobStorageProvider, BlobStorageProvider>();
         }
     }
 }
