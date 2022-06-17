@@ -49,7 +49,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func
         /// <inheritdoc/>
         public override void Configure(IFunctionsHostBuilder builder)
         {
-            // Add all options set from configuration values.
+            // Add all options set from configuration values .
             builder.Services.AddOptions<RepositoryOptions>()
                 .Configure<IConfiguration>((repositoryOptions, configuration) =>
                 {
