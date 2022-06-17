@@ -51,7 +51,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.Blob;
 
     /// <summary>
-    /// Register services in DI container, and set up middle-wares in the pipeline.
+    /// Register services in DI container,  and set up middle-wares in the pipeline.
     /// </summary>
     public class Startup
     {
