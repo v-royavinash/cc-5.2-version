@@ -103,20 +103,8 @@ class TabContainer extends React.Component<ITaskInfoProps, ITabContainerState> {
                         </Flex>
                         <Flex gap="gap.large" vAlign="center">
                             <FlexItem>
-                                <Tooltip
-                                    trigger={<img
-                                        src={require("../../assets/Images/InfoIcon.svg").default}
-                                        alt="Info"
-                                        id={buttonId}
-                                        className="header-icon"
-                                    />}
-                                    content={this.localize("MoreInfo")}
-                                    pointing={false}
-                                />
-                            </FlexItem>
-                            <FlexItem>
                                 <a
-                                    href="https://aka.ms/m365teocappsupport"
+                                    href="https://github.com/OfficeDev/microsoft-teams-apps-company-communicator/issues"
                                     target="_blank" rel="noreferrer"
                                 >
                                     <Tooltip
@@ -131,7 +119,7 @@ class TabContainer extends React.Component<ITaskInfoProps, ITabContainerState> {
                                 </a>
                             </FlexItem>
                             <FlexItem>
-                                <a href="https://aka.ms/teocappfeedback" target="_blank" rel="noreferrer">
+                                <a href="https://communityandadoption.powerappsportals.com/d365community/" target="_blank" rel="noreferrer">
                                     <Tooltip
                                         trigger={<img
                                             src={require("../../assets/Images/FeedbackIcon.svg").default}
