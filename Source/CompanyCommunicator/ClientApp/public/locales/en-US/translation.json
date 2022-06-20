@@ -88,5 +88,9 @@
   "ExportButtonProgressText": "Export in progress",
   "ErrorURLMessage": "URL must start with https://",
   "ErrorImageTooBig": "The image is too big!",
-  "ErrorImageTooBigSize": "Please upload a JPEG (or equivalent) compressed image with maximum size of"
+  "ErrorImageTooBigSize": "Please upload a JPEG (or equivalent) compressed image with maximum size of",
+  "CompanyCommunicator": "Company Communicator",
+  "MoreInfo": "More Info",
+  "Support": "Support",
+  "Feedback": "Feedback"
 }
