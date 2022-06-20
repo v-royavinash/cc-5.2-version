@@ -22,6 +22,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator
     using Microsoft.Teams.Apps.CompanyCommunicator.Authentication;
     using Microsoft.Teams.Apps.CompanyCommunicator.Bot;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Adapter;
+    using Microsoft.Teams.Apps.CompanyCommunicator.Common.Clients;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Extensions;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.ExportData;
@@ -32,6 +33,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Secrets;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Services;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.AdaptiveCard;
+    using Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.Blob;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.CommonBot;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.MessageQueues.DataQueue;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.MessageQueues.ExportQueue;
@@ -43,15 +45,9 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator
     using Microsoft.Teams.Apps.CompanyCommunicator.Controllers.Options;
     using Microsoft.Teams.Apps.CompanyCommunicator.DraftNotificationPreview;
     using Microsoft.Teams.Apps.CompanyCommunicator.Localization;
-    using Microsoft.ApplicationInsights.Extensibility;
-    using Microsoft.Bot.Builder;
-    //using Microsoft.Bot.Builder.ApplicationInsights;
-    //using Microsoft.Bot.Builder.Integration.ApplicationInsights.Core;
-    using Microsoft.Teams.Apps.CompanyCommunicator.Common.Clients;
-    using Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.Blob;
 
     /// <summary>
-    /// Register services in DI container,  and set up middle-wares in the pipeline.
+    /// Register services in DI container, and set up middle-wares in the pipeline.
     /// </summary>
     public class Startup
     {

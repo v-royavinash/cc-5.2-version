@@ -265,10 +265,4 @@
   <data name="ColumnName_Error" xml:space="preserve">
     <value>Error</value>
   </data>
-  <data name="ShowOriginalButton" xml:space="preserve">
-    <value>See original message</value>
-  </data>
-  <data name="TranslateButton" xml:space="preserve">
-    <value>Translate</value>
-  </data>
 </root>

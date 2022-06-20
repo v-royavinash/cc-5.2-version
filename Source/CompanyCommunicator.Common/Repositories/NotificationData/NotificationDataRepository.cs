@@ -10,7 +10,6 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.Notificat
     using System.Threading.Tasks;
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Options;
-        using Microsoft.Teams.Apps.CompanyCommunicator.Common.Extensions;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.Blob;
 
     /// <summary>
@@ -230,7 +229,6 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.Notificat
         /// <inheritdoc/>
         public async Task<string> GetImageAsync(string prefix, string blobName)
         {
-            // TODO: validate prefix.
             return prefix + await this.storageProvider.DownloadBase64ImageAsync(blobName);
         }
 

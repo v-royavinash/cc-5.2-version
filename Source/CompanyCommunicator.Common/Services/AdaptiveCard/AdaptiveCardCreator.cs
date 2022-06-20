@@ -7,9 +7,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.AdaptiveCard
 {
     using System;
     using AdaptiveCards;
-    using Microsoft.Bot.Schema;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.NotificationData;
-    using Newtonsoft.Json;
 
     /// <summary>
     /// Adaptive Card Creator service.
@@ -42,6 +40,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.AdaptiveCard
         /// <param name="author">The adaptive card's author value.</param>
         /// <param name="buttonTitle">The adaptive card's button title value.</param>
         /// <param name="buttonUrl">The adaptive card's button url value.</param>
+        /// <param name="notificationId">The notification id.</param>
         /// <returns>The created adaptive card instance.</returns>
         public AdaptiveCard CreateAdaptiveCard(
             string title,
@@ -108,18 +107,6 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.AdaptiveCard
                     Url = new Uri(buttonUrl, UriKind.RelativeOrAbsolute),
                 });
             }
-            //if (!string.IsNullOrEmpty(notificationId))
-            //{
-            //    card.Actions.Add(
-            //        new AdaptiveSubmitAction()
-            //        {
-            //            Title = "Translate",
-            //            Id = "translate",
-            //            Data = "translate",
-            //            DataJson = JsonConvert.SerializeObject(new { notificationId = notificationId, translation = true }),
-            //        }
-            //    );
-            //}
 
             // Full width Adaptive card.
             card.AdditionalProperties.Add("msteams", new { width = "full" });

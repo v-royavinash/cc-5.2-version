@@ -24,6 +24,5 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Clients
         /// <param name="blobContainerName">Blob container name.</param>
         /// <returns>BlobContainerClient instance.</returns>
         BlobContainerClient CreateBlobContainerClient(string blobContainerName);
-
     }
 }

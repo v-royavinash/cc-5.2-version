@@ -5,7 +5,6 @@
     <LangVersion>8.0</LangVersion>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>Microsoft.Teams.Apps.CompanyCommunicator.Common</AssemblyName>
-    <UserSecretsId>832d8cb9-cb8d-40a9-bf02-6ae9f8ee2a37</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

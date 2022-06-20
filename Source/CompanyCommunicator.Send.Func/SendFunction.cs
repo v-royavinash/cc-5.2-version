@@ -21,7 +21,6 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Send.Func
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.Teams;
     using Microsoft.Teams.Apps.CompanyCommunicator.Send.Func.Services;
     using Newtonsoft.Json;
-    using Microsoft.Bot.Builder.Teams;
 
     /// <summary>
     /// Azure Function App triggered by messages from a Service Bus queue
@@ -251,9 +250,9 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Send.Func
 
         private async Task<IMessageActivity> GetMessageActivity(SendQueueMessageContent message)
         {
-            //var notification = await this.notificationRepo.GetAsync(
-            //    NotificationDataTableNames.SendingNotificationsPartition,
-            //    message.NotificationId);
+            var notification = await this.notificationRepo.GetAsync(
+                NotificationDataTableNames.SendingNotificationsPartition,
+                message.NotificationId);
 
             // Download serialized AC from blob storage.
             var jsonAC = await this.notificationRepo.GetAdaptiveCardAsync(message.NotificationId);
@@ -261,7 +260,6 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Send.Func
             var adaptiveCardAttachment = new Attachment()
             {
                 ContentType = AdaptiveCardContentType,
-                //Content = JsonConvert.DeserializeObject(notification.Content),
                 Content = JsonConvert.DeserializeObject(jsonAC),
             };
 

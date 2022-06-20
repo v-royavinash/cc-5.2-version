@@ -243,6 +243,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Controllers
                 CanDownload = userNotificationDownload == null,
                 SendingCompleted = notificationEntity.IsCompleted(),
             };
+
             // In case we have blob name instead of URL to public image.
             if (!string.IsNullOrEmpty(notificationEntity.ImageBase64BlobName)
                 && result.ImageLink.StartsWith(Common.Constants.ImageBase64Format))
