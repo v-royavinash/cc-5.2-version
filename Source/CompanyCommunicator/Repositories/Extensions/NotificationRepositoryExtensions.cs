@@ -50,7 +50,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Repositories.Extensions
                 AllUsers = notification.AllUsers,
             };
 
-            if (string.IsNullOrEmpty(notification.ImageLink) && notification.ImageLink.StartsWith(Constants.ImageBase64Format))
+            if (!string.IsNullOrEmpty(notification.ImageLink) && notification.ImageLink.StartsWith(Constants.ImageBase64Format))
             {
                 notificationEntity.ImageLink = await notificationRepository.SaveImageAsync(newId, notification.ImageLink);
                 notificationEntity.ImageBase64BlobName = newId;

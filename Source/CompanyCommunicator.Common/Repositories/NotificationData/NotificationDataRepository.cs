@@ -185,8 +185,14 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.Notificat
                 notificationDataEntityId);
             if (notificationDataEntity != null)
             {
-                notificationDataEntity.ErrorMessage =
-                    this.AppendNewLine(notificationDataEntity.ErrorMessage, errorMessage);
+                var newErrorMessage = this.AppendNewLine(notificationDataEntity.ErrorMessage, errorMessage);
+
+                // Restrict the total length of stored message to avoid hitting table storage limits
+                if (newErrorMessage.Length <= MaxMessageLengthToSave)
+                {
+                    notificationDataEntity.ErrorMessage = newErrorMessage;
+                }
+
                 notificationDataEntity.Status = NotificationStatus.Failed.ToString();
 
                 // Set the end date as current date.
@@ -208,8 +214,14 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.Notificat
                     notificationDataEntityId);
                 if (notificationDataEntity != null)
                 {
-                    notificationDataEntity.WarningMessage =
-                        this.AppendNewLine(notificationDataEntity.WarningMessage, warningMessage);
+                    var newWarningMessage = this.AppendNewLine(notificationDataEntity.WarningMessage, warningMessage);
+
+                    // Restrict the total length of stored message to avoid hitting table storage limits
+                    if (newWarningMessage.Length <= MaxMessageLengthToSave)
+                    {
+                        notificationDataEntity.WarningMessage = newWarningMessage;
+                    }
+
                     await this.CreateOrUpdateAsync(notificationDataEntity);
                 }
             }
