@@ -92,5 +92,7 @@
   "CompanyCommunicator": "Company Communicator",
   "MoreInfo": "More Info",
   "Support": "Support",
-  "Feedback": "Feedback"
+  "Feedback": "Feedback",
+  "ErrorImageTypesMessage": "Supported file types are .jpg, .jpeg, .png, .gif",
+  "ErrorImageSizeMessage": "Maximum allowed size of image is ~3 MB"
 }

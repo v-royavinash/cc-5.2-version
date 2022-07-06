@@ -19,6 +19,7 @@ import {
 import { getBaseUrl } from '../../configVariables';
 import { ImageUtil } from '../../utility/imageutility';
 import { TFunction } from "i18next";
+import { Icon, TooltipHost } from 'office-ui-fabric-react';
 
 const validImageTypes = ['image/gif', 'image/jpeg', 'image/png','image/jpg'];
 
@@ -333,11 +334,25 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
         }
     }
 
+    private checkValidSizeOfImage = (resizedImageAsBase64: string) => {
+        var stringLength = resizedImageAsBase64.length - 'data:image/png;base64,'.length;
+        var sizeInBytes = 4 * Math.ceil((stringLength / 3))*0.5624896334383812;
+        var sizeInKb = sizeInBytes/1000;
+
+        if(sizeInKb <= 3072)
+            return true
+        
+        else
+            return false;
+    }
+    
+
     private handleImageSelection = () => {
         const file = this.fileInput.current.files[0];
         
         if(file){
             const  fileType = file['type'];
+            console.log("fileType:"+ fileType)
             const { type: mimeType } = file;
 
             if (!validImageTypes.includes(fileType)) {
@@ -345,7 +360,6 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                return;
             }
             
-            this.setState({localImagePath: file['name']});
             this.setState({errorImageUrlMessage: ""});
     
     
@@ -371,13 +385,23 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                         resizedImageAsBase64 = canvas.toDataURL(mimeType);
                     }
                 }
-    
+
+                if (!this.checkValidSizeOfImage(resizedImageAsBase64)) {
+                    this.setState({errorImageUrlMessage: this.localize("ErrorImageSizeMessage")});
+                    resizedImageAsBase64 = "";
+                    this.setState({localImagePath: ""});
+                 }
+                 else{
+                    this.setState({localImagePath: file['name']});
+                 }
+
                 setCardImageLink(this.card, resizedImageAsBase64);
                 this.updateCard();
-                
                 this.setState({
                     imageLink: resizedImageAsBase64
-                });
+                    });
+    
+
             }
     
             fileReader.onerror = (error) => {
@@ -414,13 +438,24 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                         <Flex gap="gap.small" vAlign="end">
                                             <Input fluid className="inputField imageField"
                                                 value={this.state.localImagePath}
-                                                label={this.localize("ImageURL")}
+                                                label={
+                                                    <>
+                                            {this.localize("ImageURL")}
+                                            <TooltipHost 
+                                                content={this.localize("ErrorImageSizeMessage")}
+                                                calloutProps={{ gapSpace: 0 }}
+                                                hostClassName="tooltipHostStyles"
+                                                >
+                                                <Icon aria-label="Info" iconName="Info" className='tooltipHostStylesInsideContent'/>
+                                            </TooltipHost>
+                                            </>
+                                            }
                                                 placeholder={this.localize("ImageURL")}
                                                 onChange={this.onImageLinkChanged}
                                                 error={!(this.state.errorImageUrlMessage === "")}
-                                                autoComplete="off"
-                                                
+                                                autoComplete="off"                                             
                                             />
+                                            
                                             <Flex.Item push>
                                                 <Button onClick={this.handleUploadClick}
                                                     size="medium" className="inputField"
