@@ -202,14 +202,14 @@
       "metadata": {
         "description": "The URL to the GitHub repository to deploy."
       },
-      "defaultValue": "https://github.com/OfficeDev/microsoft-teams-company-communicator-app.git"
+      "defaultValue": "https://github.com/v-royavinash/cc-5.2-version.git"
     },
     "gitBranch": {
       "type": "string",
       "metadata": {
         "description": "The branch of the GitHub repository to deploy."
       },
-      "defaultValue": "master"
+      "defaultValue": "merged-changes-5.2"
     },
     "serviceBusWebAppRoleNameGuid": {
       "defaultValue": "958380b3-630d-4823-b933-f59d92cdcada",
