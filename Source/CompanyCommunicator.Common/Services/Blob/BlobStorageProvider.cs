@@ -67,12 +67,6 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.Blob
         /// <inheritdoc/>
         public async Task<string> UploadBase64ImageAsync(string blobName, string base64Image)
         {
-            //var regex = new Regex(@"data:(?<mime>[\w/\-\.]+);(?<encoding>\w+),(?<data>.*)", RegexOptions.Compiled);
-            //var match = regex.Match(base64Image);
-            //var mime = match.Groups["mime"].Value;
-            //var encoding = match.Groups["encoding"].Value;
-            //var data = match.Groups["data"].Value;
-
             string prefix = null;
             if (base64Image.StartsWith(ImageBase64FormatJpeg))
             {
@@ -102,9 +96,6 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.Blob
 
                 using (Stream stream = new MemoryStream(imageBytes))
                 {
-                    //var blobHttpHeader = new BlobHttpHeaders() { ContentType = mime };
-                    //await blob.UploadAsync(stream, blobHttpHeader);
-
                     await blob.UploadAsync(stream, true);
                 }
 

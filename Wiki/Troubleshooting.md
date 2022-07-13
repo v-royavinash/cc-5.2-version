@@ -34,7 +34,7 @@ There are certain issues that can arise that are common to many of the app templ
 ```
 The resource type `Microsoft.Web/sites/sourcecontrols` failed to deploy. The transitive dependency set of the front-end web app pulls in over 1,000 NPM packages, and sometimes there is an error fetching all of the packages.
 
-### Fix
+#### Fix
 ![Screenshot of refreshing code deployment](images/troubleshooting_sourcecontrols.png)
 1. Go to the "Deployment center" section of the app service that failed to deploy.
 2. Click on "Sync" to restart the deployment.
@@ -60,7 +60,7 @@ Error Logs:
 "message": "Tenant ID, application ID, principal ID, and scope are not allowed to be updated." 
 }, 
 ```
-### Fix
+#### Fix
 This issue occurs when attempting multiple deployments with the same GUID. As per suggestion it is recommended to have new GUID’s generated for each deployment.
 
 1. Go to the Azure portal and delete the existing resources.
@@ -70,7 +70,7 @@ This issue occurs when attempting multiple deployments with the same GUID. As pe
 
 ## 3. Send in chat to members of the following M365 groups, Distribution groups or Security groups option is Disabled.
 
-### Fix
+#### Fix
 
 Verify if the below permissions has been added to the graph app registration and the admin consent is granted.
 
@@ -90,7 +90,7 @@ Verify if the below permissions has been added to the graph app registration and
 
 ## 4. Multiple instance of Company Communicator in the same tenant action items.
 
-### Steps
+#### Steps
 
 To deploy the second instance of company communicator in single-tenant
 
@@ -126,7 +126,7 @@ npm ERR!
 npm ERR! Failed at the company-communicator@4.1.5 build script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above 
 ```
-### Fix
+#### Fix
 This issue occurs when attempting multiple times node modules are installed by changing the branch endpoint.
 
 1. Go to the Deployment center. Click on Disconnect.
@@ -140,7 +140,7 @@ This issue occurs when attempting multiple times node modules are installed by c
 3. Once the disconnection is completed. Go to Settings and select External Git and add below URL and branch name.
     
     * Repository : https://github.com/OfficeDev/microsoft-teams-apps-company-communicator.git
-    * Branch     : master (If you are using older version of CC, please select the branch name accordingly.)
+    * Branch     : main (If you are using older version of CC, please select the branch name accordingly.)
 
     ![Screenshot of troubleshooting app service deployment](images/troubleshooting_appservicesyncerror_3.png)
 
@@ -161,7 +161,7 @@ If you encounter the following error message while deploying with the PowerShell
 
 ## 8. Cannot find any Teams or Teams Users in the dropdown while sending the message.
 
-### Fix
+#### Fix
 Teams only show up when the user app is installed to specific Teams in the tenant.
 
 1. Click on the User App and Add to Specific Teams.
@@ -172,7 +172,7 @@ Teams only show up when the user app is installed to specific Teams in the tenan
 
 ## 9. User is getting DeltaLink older than 30 days is not supported error.
 
-### Fix
+#### Fix
 This issue occurs when attempting multiple times node modules are insatlled by changing the branch endpoint.
 
 1. Go to Resource Group which was created and then to to storage account.
@@ -191,7 +191,7 @@ This issue occurs when attempting multiple times node modules are insatlled by c
 
 When sending chat to 'members of following teams' or 'members of M365 groups' people who are listed as owners of those groups and not members are not getting broadcasts.
 
-### Fix
+#### Fix
 Teams only show up when the user app is installed to specific Teams in the tenant.
 
 1. If you are sending the message to teams channel, both members and owner will be receiving the message.
@@ -212,7 +212,7 @@ Bot is not valid. Errors: The Microsoft App ID is already registered to another 
 
 This happens when the Microsoft Azure application ID entered during the setup of the deployment has already been used and registered for a bot, for instance, if a previous deployment step failed **after** the bot was created.
 
-### Fix
+#### Fix
 Either register a new Microsoft Azure AD application or delete the bot registration that is currently using the attempted Microsoft Azure application ID.
 
 ## 12. Forgetting the botId or appDomain
@@ -222,20 +222,6 @@ If you forgot to copy your **authorBotId**, **userBotId** and **appDomain** valu
 * **userBotId:** This is the user Microsoft Application ID for the Company Communicator app. It can be found in the "UserAppId" field of your configuration e.g. 5630f8a2-c2a0-4cda-bdfa-c2fa87654321. For the following steps, it will be referred to as %userBotId%.
 * **appDomain:** This is the base domain for the Company Communicator app. It is the value in the "AzureAd:ApplicationIdURI" field of your configuration without the "api://" e.g. appName.azurefd.net. For the following steps, it will be referred to as %appDomain%.
 
-## 13. App service deployment fails with the error message "Input string was not in a correct format" due to fsevents package.
-App Service deployment failed recently due to deprecation of package version used in the application, the issue is already fixed and released to GitHub. However, if you've performed the deployment already and wanted to fix the failed deployment, then use the below mentioned work around.
-
-### Fix
-
-- Go to portal.azure.com. Navigate to resource group where all CC resources are deployed.
-- Click on the app service -> click on Configuration
-- Click on **WEBSITE_NODE_DEFAULT_VERSION.**
-- Update the default value to **16.13.0** (previous value -> 10.15.2) and save.
-- Click on overview and re-start the app service.
-- Once the app service is restarted, navigate to Deployment Center and click on Sync.
-- Wait till the deployment is completed. You can validate this once the status changes to Success under logs. 
 
 # Didn't find your problem here?
 Please report the issue [here](https://github.com/OfficeDev/microsoft-teams-company-communicator-app/issues/new)
-
-

@@ -10,7 +10,6 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.Notificat
     using System.Threading.Tasks;
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Options;
-        using Microsoft.Teams.Apps.CompanyCommunicator.Common.Extensions;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.Blob;
 
     /// <summary>
@@ -186,8 +185,14 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.Notificat
                 notificationDataEntityId);
             if (notificationDataEntity != null)
             {
-                notificationDataEntity.ErrorMessage =
-                    this.AppendNewLine(notificationDataEntity.ErrorMessage, errorMessage);
+                var newErrorMessage = this.AppendNewLine(notificationDataEntity.ErrorMessage, errorMessage);
+
+                // Restrict the total length of stored message to avoid hitting table storage limits
+                if (newErrorMessage.Length <= MaxMessageLengthToSave)
+                {
+                    notificationDataEntity.ErrorMessage = newErrorMessage;
+                }
+
                 notificationDataEntity.Status = NotificationStatus.Failed.ToString();
 
                 // Set the end date as current date.
@@ -209,8 +214,14 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.Notificat
                     notificationDataEntityId);
                 if (notificationDataEntity != null)
                 {
-                    notificationDataEntity.WarningMessage =
-                        this.AppendNewLine(notificationDataEntity.WarningMessage, warningMessage);
+                    var newWarningMessage = this.AppendNewLine(notificationDataEntity.WarningMessage, warningMessage);
+
+                    // Restrict the total length of stored message to avoid hitting table storage limits
+                    if (newWarningMessage.Length <= MaxMessageLengthToSave)
+                    {
+                        notificationDataEntity.WarningMessage = newWarningMessage;
+                    }
+
                     await this.CreateOrUpdateAsync(notificationDataEntity);
                 }
             }
@@ -230,7 +241,6 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.Notificat
         /// <inheritdoc/>
         public async Task<string> GetImageAsync(string prefix, string blobName)
         {
-            // TODO: validate prefix.
             return prefix + await this.storageProvider.DownloadBase64ImageAsync(blobName);
         }
 

@@ -165,6 +165,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.Notificat
         /// [DEPRECATED - because the bot now retries, this should always stay 0].
         /// </summary>
         public int Throttled { get; set; }
+
         /// <summary>
         /// Gets or sets the number of not found recipients.
         /// </summary>
