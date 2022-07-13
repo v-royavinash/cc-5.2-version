@@ -90,5 +90,7 @@
   "ErrorImageTooBig": "The image is too big!",
   "ErrorImageTooBigSize": "Please upload a JPEG (or equivalent) compressed image with maximum size of",
   "ErrorImageTypesMessage": "Supported file types are .jpg, .jpeg, .png, .gif",
-  "ErrorImageSizeMessage": "Maximum allowed size of image is ~3 MB. Its recommended to use image upload functionality for smaller sized images"
+  "ErrorImageSizeMessage": "Maximum allowed size of image is ~3 MB.",
+  "ImageSizeInfoContent": "Maximum allowed size of image is ~3 MB. Its recommended to use image upload functionality for smaller sized images"
+}
 }
