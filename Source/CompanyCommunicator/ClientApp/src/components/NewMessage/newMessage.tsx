@@ -113,7 +113,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
             allUsersOptionSelected: false,
             groupsOptionSelected: false,
             messageId: "",
-            loader: true,
+            loader: false,
             groupAccess: false,
             loading: false,
             noResultMessage: "",
@@ -386,6 +386,12 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                     }
                 }
 
+                if (!this.checkValidSizeOfImage(resizedImageAsBase64)) {
+                    this.setState({ errorImageUrlMessage: this.localize("ErrorImageSizeMessage") });
+                    return;
+                }
+                
+
                 setCardImageLink(this.card, resizedImageAsBase64);
                 this.updateCard();
                 this.setState({
@@ -433,7 +439,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                                     <>
                                             {this.localize("ImageURL")}
                                             <TooltipHost 
-                                                content={this.localize("ErrorImageSizeMessage")}
+                                                content={this.localize("ImageSizeInfoContent")}
                                                 calloutProps={{ gapSpace: 0 }}
                                                 hostClassName="tooltipHostStyles"
                                                 >
@@ -457,8 +463,9 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                                 multiple={false}
                                                 onChange={this.handleImageSelection}
                                                 ref={this.fileInput} />
-                                            <Text className={(this.state.errorImageUrlMessage === "") ? "hide" : "show"} error size="small" content={this.state.errorImageUrlMessage} />
                                         </Flex>
+                                        <Text className={(this.state.errorImageUrlMessage === "") ? "hide" : "show"} error size="small" content={this.state.errorImageUrlMessage} />
+
                                         <div className="textArea">
                                             <Text content={this.localize("Summary")} />
                                             <TextArea
