@@ -9,26 +9,29 @@ The app provides an easy interface for designated users to create, preview, coll
 
 ![Company Communicator compose message screen](https://github.com/OfficeDev/microsoft-teams-company-communicator-app/wiki/images/CompanyCommunicatorCompose.png)
 
-### Key features
+## Key features
+
 * **Message creation:** Easily create messages by using a team tab where team members who are permissioned can collaborate and create messages.
 * **Audience selection:** Pick from four options to target audience. Send to general channel of selected teams, send in 1:1 chat to members of selected teams, send to all users who have the app installed or send to M365 groups, distribution lists or security groups.
 * **Message metrics:** Export messages delivery report.
 * **Localization:** Supports multiple locales.
+* **Feedback:** Submit your feedback to the product team.
+
 ## Get started
 
 Begin with the [Solution overview](https://github.com/OfficeDev/microsoft-teams-company-communicator-app/wiki/Solution-overview) to read about what the app does and how it works.
 
 When you're ready to try out Company Communicator, or to use it in your own organization, you can choose to follow one of the below guides.
 * [Deployment guide powershell](https://github.com/OfficeDev/microsoft-teams-company-communicator-app/wiki/Deployment-guide-powershell).
-    * **Recommended** Use this option to deploy the Company Communicator v5.0 using powershell script. The entire set-up is done by the powershell script.
+    * **Recommended** Use this option to deploy the Company Communicator v5.2 using powershell script. The entire set-up is done by the powershell script.
 * [Deployment guide](https://github.com/OfficeDev/microsoft-teams-company-communicator-app/wiki/Deployment-guide).
-    * Use this option to deploy the Company Communicator v5.0 with client secrets.
+    * Use this option to deploy the Company Communicator v5.2 with client secrets.
 * [Deployment guide certificate](https://github.com/OfficeDev/microsoft-teams-company-communicator-app/wiki/Deployment-guide-certificate).
-    * Use this option to deploy the Company Communicator v5.0 with certificates.
+    * Use this option to deploy the Company Communicator v5.2 with certificates.
 
 ## Migration 
 
-If you already have older version of Company Communicator installed, then please use this [v5 migration guide](https://github.com/OfficeDev/microsoft-teams-apps-company-communicator/wiki/v5-migration-guide). Please note that deploying the major version update, like Company Communicator version 5.0 involves more than syncing the App Service and Azure Functions, so plan to review the migration guide before migrating to latest. 
+If you already have older version of Company Communicator installed, then please use this [v5 migration guide](https://github.com/OfficeDev/microsoft-teams-apps-company-communicator/wiki/v5-migration-guide). Please note that deploying the major version update, like Company Communicator version 5.2 involves more than syncing the App Service and Azure Functions, so plan to review the migration guide before migrating to latest. 
 
 Migrating to newer versions. 
 

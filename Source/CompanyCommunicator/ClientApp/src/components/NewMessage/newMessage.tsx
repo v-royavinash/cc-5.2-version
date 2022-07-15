@@ -651,6 +651,9 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                             <Flex className="footerContainer" vAlign="end" hAlign="end">
                                 <Flex className="buttonContainer" gap="gap.small">
                                     <Flex.Item push>
+                                        <Loader id="draftingLoader" className="hiddenLoader draftingLoader" size="smallest" label={this.localize("DraftingMessageLabel")} labelPosition="end" />
+                                    </Flex.Item>
+                                    <Flex.Item push>
                                         <Button content={this.localize("Back")} onClick={this.onBack} secondary />
                                     </Flex.Item>
                                     <Button content={this.localize("SaveAsDraft")} disabled={this.isSaveBtnDisabled()} id="saveBtn" onClick={this.onSave} primary />
@@ -833,6 +836,9 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
             groups: selectedGroups,
             allUsers: this.state.allUsersOptionSelected
         };
+
+        let spanner = document.getElementsByClassName("draftingLoader");
+        spanner[0].classList.remove("hiddenLoader");
 
         if (this.state.exists) {
             this.editDraftMessage(draftMessage).then(() => {

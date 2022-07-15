@@ -126,6 +126,16 @@
                     margin-inline-start: 0.8rem;
                 }
             }
+
+            .hiddenLoader {
+                display: none;
+            }
+
+            .drfatingLoader {
+                width: 18rem;
+                margin-right: 2rem;
+                height: 3rem;
+            }
         }
     }
 }

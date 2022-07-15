@@ -47,72 +47,29 @@ The default app service plan for CC deployment is Windows, if you want to use Li
 ### 10. How do I know the version of the app? 
 ![Version of the app](images/version_app.png)
 
-### 11.Can I update the list of Authors after deploying the Company Communicator App?
-Yes, you can update the list of Authors even after deploying the Company Communicator App by 
-going to the deployed Azure App Service.
-1. Go to deployed Azure Resource Group -> Azure App Service.(images/11.1.PNG)
-2. Select the configuration blade from the Azure App service and updated the 
-AuthorizedCreatorsUpns app setting value.(images/11.2.PNG)
-3. Save and then restart the App.(images/11.3.PNG)
+### 11. Can I update the list of authors after deploying the app?
+Yes, you can update the list of authors after deploying the Company Communicator app by going to the deployed Azure App Service.
+1. Go to deployed Azure Resource Group -> Azure App Service.
+2. Select the configuration blade from the Azure App service and updated the AuthorizedCreatorsUpns app setting value.
+3. Save and then restart the App.
 
-### 12.How can I add the CC app to large number of Teams in bulk? Say with the deployment of CC, we need to make sure 2000 Teams have CC User App Installed so that CC Authors can view the channels and send out the messages to the selected Teams?
+    ![Update author list](images/update_author_list.png)
 
- There are 2 ways through which CC User App can be installed directly to Teams:
-• Graph API 
-o You can create a script to take the Team IDs in bulk as input either from a CSV or 
-excel file and invoke the Graph API to add CC User App to the Teams.(images/12.1.PNG)
-o You can get the App id from Teams Admin Centre – Teams App Store.(images/12.2.PNG) 
- 
-• Teams PowerShell Command 
-o You can create a script to take the Team IDs in bulk as input either from a CSV or 
-excel file and invoke the Teams PowerShell command to add CC User App to the 
-Teams.
-o You can get the App id from Teams Admin Centre – Teams App Store as shown above.(images/12.3.PNG)
+### 12. How to update the banner title and the logo?
+You can update the banner title and the logo by updating the configuration in Azure app service
 
-### 13.How to install Company Communicator in an external tenant? 
+1. Go to deployed Azure Resource Group -> Azure App Service.
+1. Select the configuration blade from the Azure App service and update the 'REACT_APP_HEADERIMAGE' and 'REACT_APP_HEADERTEXT' configuration values.
 
-1. Grab the Azure AD tenant ID to the external tenant (this info is available in Azure AD, under 
-Manage > Properties)
-2. Grab the Application ID of the "Company Communicator Author App" - This is the ID created 
-during the app registration in the home tenant.
-3. Ask an Azure AD admin (for the external tenant) to grant admin consent to this app for the 
-organization. Use this URL pattern with an AAD admin account and grant consent: 
-https://login.microsoftonline.com/%EXTERMAL_TENANT_ID%/adminconsent?client_id=%CC_AUTHOR_APPID%
-4. Go to the Azure Web App where Company Communicator is deployed and go to the App 
-Configuration Settings - Change the value of the property named "AllowedTenants" and add 
-the list of external tenant ID (with semicolon separation) - e.g. e517378c-47aa-4aa1-b4c4-
-9a947b95392c;006ce5cb-7ecf-4638-9f64-ce65797d62e9 
-5. Save the modification and restart the App Service.
-6. From the Teams admin portal of the external tenant, publish the Company Communicator 
-User app in the company catalog and deploy the App as usual (e.g. via App Permission & 
-Setup Policies) to targeted users and teams.
+    ![Update banner](images/update_banner_title_logo.png)
 
-### 14.Can I send a message to a globally-distributed set of users and allow them to receive the message in their native language of choice? 
-Yes. While you can achieve this with custom development, this can also be achieved without:
-1. Set criteria: If you set a criteria to identify groups of people (based on their preferred / mother 
-language / location) – you can create or leverage Distribution Groups for different 
-populations. (e.g. "UK headquarters")
-2. Send the message in the appropriate language: Prepare a message in the desired language 
-and target the appropriate group (reference point #1 above). The alternative is to 
-automatically translate via our Azure cognitive services. Please consider the translation 
-carefully as, in our experience, employees tend to prefer a personal message rather than a 
-message has been automatically translated
+1. Save the changes
+1. Navigate to 'Deployment Center' and click 'Sync'
+1. Check the status of the deployment in the 'Logs' tab, once the status is success, the changes will reflect automatically.
 
-### 15.Can you re-send messages to failed recipients?
-If you have deployed the newest version of Company Communicator (v4.1 or newer), you can see 
-sent message results in the message authoring interface tab (where new CompanyCommunicator 
-Card content is created). Expand the list of “Sent Messages,” choose the message in question, and to 
-the right you can click to get more detailed report information. From there, you can search through 
-the report and re-send to failed recipients. 
-There is a better way. We would recommend avoiding failures altogether. Here are the two most 
-common reasons that failures occur:
-1. Users have blocked the Company Communicator bot
-2. The Company Communicator App is not installed for the target user.
+    ![Sync changes](images/sync_changes.png)
 
-Three ways to get around common failures:
-1. Add the Company Communicator App to the Teams App Store and direct users to download.
-2. Add the Company Communicator App to Teams in your tenant.
-3. Recommended: Use Teams Application Setup Policies to push the app to users
-
+### 13. Is it possible to format the message in the summary field?
+Yes, you can use markdown tags for formatting the message in the summary. CC v5.2 supports this feature, you can refer [here](https://docs.microsoft.com/en-us/adaptive-cards/authoring-cards/text-features) to know the list of styles supported.
 
   

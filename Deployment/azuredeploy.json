@@ -146,7 +146,7 @@
       "defaultValue": "Company Communicator",
       "minLength": 1,
       "metadata": {
-        "description": "The header text."
+        "description": "The header banner text."
       }
     },
     "headerLogoUrl": {
@@ -154,7 +154,7 @@
       "minLength": 1,
       "defaultValue": "https://raw.githubusercontent.com/OfficeDev/microsoft-teams-company-communicator-app/main/Source/CompanyCommunicator/ClientApp/src/assets/Images/mslogo.png",
       "metadata": {
-        "description": "The link to the icon for the app. It must resolve to a PNG file."
+        "description": "The link to the logo for the app. It must resolve to a PNG file."
       }
     },
     "tenantId": {
