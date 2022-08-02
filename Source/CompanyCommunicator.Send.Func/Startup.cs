@@ -105,7 +105,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Send.Func
             builder.Services.AddTransient<IStorageClientFactory, StorageClientFactory>();
             builder.Services.AddTransient<IBlobStorageProvider, BlobStorageProvider>();
 
-            // In-memory cache
+            // Add the cache services
             builder.Services.AddSingleton<IMemoryCache, MemoryCache>();
 
             // Add Secrets.

@@ -89,6 +89,6 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common
         /// <summary>
         /// cache duration in hours.
         /// </summary>
-        public const int CacheDurationInHours = 1;
+        public const int CacheDurationInHours = 6;
     }
 }

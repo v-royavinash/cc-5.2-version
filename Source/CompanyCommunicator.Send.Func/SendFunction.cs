@@ -38,11 +38,8 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Send.Func
         /// </summary>
         private static readonly int MaxDeliveryCountForDeadLetter = 10;
         private static readonly string AdaptiveCardContentType = "application/vnd.microsoft.card.adaptive";
-        public static readonly string CachePrefixSentCards = "sentcard_";
+        private static readonly string CachePrefixSentCards = "sentcard_";
 
-        /// <summary>
-        /// blob container name for serilized sent adaptive cards.
-        /// </summary>
         private readonly int maxNumberOfAttempts;
         private readonly double sendRetryDelayNumberOfSeconds;
         private readonly INotificationService notificationService;
@@ -50,10 +47,6 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Send.Func
         private readonly IMessageService messageService;
         private readonly ISendQueue sendQueue;
         private readonly IStringLocalizer<Strings> localizer;
-
-        /// <summary>
-        /// Memory cache instance to store and retrieve adaptive card payload.
-        /// </summary>
         private readonly IMemoryCache memoryCache;
 
         /// <summary>
@@ -265,15 +258,8 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Send.Func
 
         private async Task<IMessageActivity> GetMessageActivity(SendQueueMessageContent message, ILogger log)
         {
-
-            log.LogInformation($"Getting the sent card data from cache." +
-                    $"\nNotificationId Id: {message.NotificationId}");
-
             var cacheKeySentCard = CachePrefixSentCards + message.NotificationId;
             bool isCacheEntryExists = this.memoryCache.TryGetValue(cacheKeySentCard, out string jsonAC);
-
-            log.LogInformation($"Checking if sent card data exists in cache." +
-                    $"\nisCacheEntryExists: {isCacheEntryExists}" + $"\nNotificationId: {message.NotificationId}");
 
             if (!isCacheEntryExists)
             {

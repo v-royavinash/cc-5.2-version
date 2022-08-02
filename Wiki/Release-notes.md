@@ -6,7 +6,7 @@ Cumulative improvements in Company Communicator App.
 
 |Release |Published to <br/> Microsoft Store |
 |---|---|
-| 5.2 | Jul 21, 2022
+| 5.2 | Jul 26, 2022
 | 5.1 | Apr 28, 2022
 | 5.0 | Nov 10, 2021
 | 4.1.5 | Sep 29, 2021
@@ -24,7 +24,7 @@ Cumulative improvements in Company Communicator App.
 
 ### Company Communicator feature release notes
 
-#### 5.2 (Jul 21, 2022)
+#### 5.2 (Jul 26, 2022)
 ##### Changes introduced
 - Ability to upload image.
 - Ability to format the text.
